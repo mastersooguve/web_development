@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="stylepaymentform.css">
+    <title>Payment Form</title>
+  </head>
+  <body>
+    <div class="container">
+      <form id="payment_form">
+        <h1>Payment Form</h1>
+        <p>Required fields are followed by *</p>
+        <h2>Contact Information</h2>
+        <div>
+          Name: *
+          <input type="text" name="name" required placeholder="Full Name" />
+        </div>
+        <br />
+
+        <fieldset>
+          <legend>Gender *</legend>
+          <p>
+            Male
+            <input type="radio" name="gender" id="Male" value="Male" required />
+            Female
+            <input type="radio" name="gender" id="female" value="Female" required />
+          </p>
+        </fieldset>
+        <p>
+          Address:
+          <textarea name="address" id="address" cols="40" rows="5"></textarea>
+        </p>
+        <p>
+          Email: *
+          <input type="email" name="Email" id="email" required />
+        </p>
+
+        <p>
+          Pincode: *
+          <input type="number" name="pincode" id="pincode" required />
+        </p>
+        <h2>Payment Gateway</h2>
+        <p>
+          Card Type: *
+          <select name="card_type" id="card-type" required>
+            <option value="">--Select a card type--</option>
+            <option value="visa">Visa</option>
+            <option value="mastercard">Master Card</option>
+            <option value="rupay">Rupay</option>
+          </select>
+        </p>
+        <p>
+          Card number: *
+          <input type="number" name="card_num" id="card_num" required>
+        </p>
+        <p>
+          Expiry Date: *
+          <input type="date" name="expiry_date" id="expiry_date" required>
+        </p>
+        <p>
+          CVV: *
+          <input type="password" name="cvv" id="cvv" required>
+        </p>
+        <div class="sub">
+          <input type="submit" value="Show">
+        </div>
+      </form>
+      <div id="review_form" style="display: none;">
+        <h1>Review Form</h1>
+        <p><strong>Name:</strong> <span id="name"></span></p>
+        <p><strong>Gender:</strong> <span id="gender"></span></p>
+        <p><strong>Address:</strong> <span id="address"></span></p>
+        <p><strong>Email:</strong> <span id="email"></span></p>
+        <p><strong>Pincode:</strong> <span id="pincode"></span></p>
+        <p><strong>Card Type:</strong> <span id="card_type"></span></p>
+        <p><strong>Card Number:</strong> <span id="card_num"></span></p>
+        <p><strong>Expiry Date:</strong> <span id="expiry_date"></span></p>
+        <p><strong>CVV:</strong> <span id="cvv"></span></p>
+      </div>
+    </div>
+
+    <script>
+      const paymentForm = document.querySelector('#payment_form');
+const reviewForm = document.querySelector('#review_form');
+
+paymentForm.addEventListener('submit', (event) => {
+  event.preventDefault();
+
+  const name = paymentForm.elements.name.value;
+  const gender = paymentForm.elements.gender.value;
+  const address = paymentForm.elements.address.value;
+  const email = paymentForm.elements.Email.value;
+  const pincode = paymentForm.elements.pincode.value;
+  const cardType = paymentForm.elements.card_type.value;
+  const cardNum = paymentForm.elements.card_num.value;
+  const expiryDate = paymentForm.elements.expiry_date.value;
+  const cvv = paymentForm.elements.cvv.value;
+
+  const reviewHTML = `
+    <h1>Review Form</h1>
+    <p><strong>Name:</strong> ${name}</p>
+    <p><strong>Gender:</strong> ${gender}</p>
+    <p><strong>Address:</strong> ${address}</p>
+    <p><strong>Email:</strong> ${email}</p>
+    <p><strong>Pincode:</strong> ${pincode}</p>
+    <p><strong>Card Type:</strong> ${cardType}</p>
+    <p><strong>Card Number:</strong> ${cardNum}</p>
+    <p><strong>Expiry Date:</strong> ${expiryDate}</p>
+    <p><strong>CVV:</strong> ${cvv}</p>
+  `;
+
+  reviewForm.innerHTML = reviewHTML;
+  paymentForm.style.display = 'none';
+  reviewForm.style.display = 'block';
+});
+    </script>
+  </body>
+</html>
