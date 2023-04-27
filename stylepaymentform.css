@@ -165,7 +165,7 @@ input[type='submit']:hover {
 
 /* Additional styles for background images */
 #payment_form {
-  background-image: url('https://images.unsplash.com/photo-1521747116042-5a810fda9664');
+/*   background-image: url('https://images.unsplash.com/photo-1521747116042-5a810fda9664'); */
   background-size: cover;
   background-position: center;
   padding: 40px;
@@ -174,7 +174,7 @@ input[type='submit']:hover {
 }
 
 #review_form {
-  background-image: url('https://images.unsplash.com/photo-1521747116042-5a810fda9664');
+/*   background-image: url('https://images.unsplash.com/photo-1521747116042-5a810fda9664'); */
   background-size: cover;
   background-position: center;
   padding: 40px;
